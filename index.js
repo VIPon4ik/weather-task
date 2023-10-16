@@ -31,7 +31,7 @@ async function serviceSearching() {
                 `https://restcountries.com/v3.1/name/${refs.input.value}`
             );
             const data = await response.data[0];
-            return [data.capital, data.capitalInfo];
+            return [[data.capital, data.capitalInfo]];
         } catch (error) {
             console.log(error);
         }
@@ -56,13 +56,15 @@ async function serviceWether(event) {
     event.preventDefault();
 
     const capitalData = [...(await serviceSearching())];
-    console.log(capitalData);
 
-    const responses = capitalData.map(async (data) => {
+    const responses = capitalData.filter((data) => {
         if (!data) {
-            return;
+            return false;
         }
 
+        return true;
+    })
+    .map(async (data) => {
         const coords = data[1].latlng;
         const linkJSON = `https://api.meteomatics.com/${dateNow.toISOString()}--${dateTo.toISOString()}:P1D/t_2m:C/${coords[0]},${coords[1]}/json?access_token=${token}`;
         const linkHTML = `https://api.meteomatics.com/${dateNow.toISOString()}--${dateTo.toISOString()}:P1D/t_2m:C/${coords[0]},${coords[1]}/html?access_token=${token}`;
