@@ -105,7 +105,6 @@ async function serviceWether(event) {
             const resHTML = await axios.get(linkHTML);
 
             const receivedHTML = resHTML.data.slice(2101, resHTML.data.length - 16);
-            console.log(receivedHTML);
 
             refs.graphs.innerHTML = receivedHTML;
             executeHighchartsCode();
