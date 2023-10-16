@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <title>Прогноз погоди</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Прогноз погоди</title>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+		<script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+		<script src="https://code.highcharts.com/modules/data.src.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/offline-exporting.js"></script>
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
@@ -14,13 +19,10 @@
                     Країна:
                     <input class="form__searching" type="text" name="county" />
                 </label>
-                <button class="form__add__country">Додати країну</button>
                 <button class="form__button_searching">Пошук</button>
             </form>
-            <h2>Посилання: </h2>
-            <ul class="list"></ul>
-            <h2>Графіки: </h2>
-            <ul class="graphs"></ul>
+            <h2>Графік:</h2>
+            <div class="graphs"></div>
         </section>
 
         <script
@@ -29,6 +31,6 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         ></script>
-        <script defer src="index.js"></script>
+        <script src="index.js"></script>
     </body>
 </html>
