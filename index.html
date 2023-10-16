@@ -3,35 +3,23 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <style>
-            body {
-                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-                font-size: 12px;
-            }
-        
-            .form {
-                display: flex;
-                flex-direction: column;
-                width: 200px;
-                padding: 20px;
-                border: 2px dashed rgb(125, 125, 125);
-                gap: 4px;
-            }
-
-            .link {
-                font-size: 20px;
-            }
-        </style>
+        <title>Прогноз погоди</title>
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <h1>Сайт для прогнозу погоди в поточний час <span></span> на кожен день протягом тижня</h1>
-        <form class="form">
-            <input class="form__searching" type="text" name="county" />
-            <button class="form__add__country">Додати країну</button>
-            <button class="form__button_searching">Пошук</button>
-        </form>
-        <a class="link">Посилання</a>
+        <section>
+            <h1>Сайт для прогнозу погоди</h1>
+            <form class="form">
+                <label>
+                    Країна:
+                    <input class="form__searching" type="text" name="county" />
+                </label>
+                <button class="form__add__country">Додати країну</button>
+                <button class="form__button_searching">Пошук</button>
+            </form>
+            <a class="link">Посилання:</a>
+            <ul class="list"></ul>
+        </section>
 
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js"

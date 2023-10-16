@@ -10,14 +10,13 @@ const refs = {
     input: document.querySelector(".form__searching"),
     search: document.querySelector(".form__button__searching"),
     add: document.querySelector(".form__add__country"),
-    date: document.querySelector("span"),
     link: document.querySelector(".link"),
 };
 
 refs.add.addEventListener("click", (event) => {
     event.preventDefault();
 
-    refs.form.insertAdjacentHTML("afterbegin",'<input class="form__searching" type="text" name="county">');
+    refs.form.insertAdjacentHTML("afterbegin",'<label>Країна:<input class="form__searching" type="text" name="county" /></label>');
 });
 
 refs.form.addEventListener("submit", serviceWether);
