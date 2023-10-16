@@ -10,7 +10,7 @@ const refs = {
     input: document.querySelector(".form__searching"),
     search: document.querySelector(".form__button__searching"),
     add: document.querySelector(".form__add__country"),
-    link: document.querySelector(".link"),
+    list: document.querySelector(".list")
 };
 
 refs.add.addEventListener("click", (event) => {
@@ -54,6 +54,8 @@ async function serviceSearching() {
 async function serviceWether(event) {
     event.preventDefault();
 
+    refs.list.innerHTML = '';
+    let markup = '';
     const capitalData = [...(await serviceSearching())];
 
     const responses = capitalData.filter((data) => {
@@ -67,7 +69,8 @@ async function serviceWether(event) {
         const coords = data[1].latlng;
         const linkJSON = `https://api.meteomatics.com/${dateNow.toISOString()}--${dateTo.toISOString()}:P1D/t_2m:C/${coords[0]},${coords[1]}/json?access_token=${token}`;
         const linkHTML = `https://api.meteomatics.com/${dateNow.toISOString()}--${dateTo.toISOString()}:P1D/t_2m:C/${coords[0]},${coords[1]}/html?access_token=${token}`;
-        refs.link.href = `${linkHTML}`;
+        markup += `<li><a href=${linkHTML}>${data[0]}</a></li>`;
+        console.log(data[0]);
 
         try {
             const res = await axios.get(linkJSON);
@@ -80,4 +83,5 @@ async function serviceWether(event) {
     });
 
     console.log(await Promise.all(responses));
+    refs.list.innerHTML = markup;
 }

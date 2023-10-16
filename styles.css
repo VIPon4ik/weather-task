@@ -51,6 +51,6 @@ label {
 input {
     border: 1px solid rgb(19, 159, 142);
     border-radius: 4px;
-    padding: 4px 18px;
+    padding: 4px 32px 4px 4px;
     box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
